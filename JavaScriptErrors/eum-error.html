@@ -1,0 +1,33 @@
+<html>
+   <head>
+
+     <script>window['adrum-start-time'] = new Date().getTime();</script>
+     <script src="/adrum.js"></script>
+     <script src="/eum-js-error.js"></script>
+
+   </head>
+
+   <body>
+
+     <h1>Hello, Random Error Simulator</h1>
+
+  </body>
+
+  <!--Adding data to the AppDynamics snapshot -->
+  <script>
+    if (ADRUM)
+    {
+      var minorVersion = getRandomArbitraryInt(1, 3)
+      var releaseVersion = "version_1.2." + minorVersion;
+
+      ADRUM.command ("addUserData", "version", releaseVersion);
+      ADRUM.listenForErrors()
+
+    }
+  </script>
+
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', randJavascriptError(), false);
+  </script>
+
+</html>
